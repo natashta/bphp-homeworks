@@ -23,6 +23,6 @@ if (is_bool ($variable)) {
     <title>bPHP - 1.1.1</title>
 </head>
 <body>
-    <p><?php echo $variable . ' is ' . $type ?></p>
+    <p><?php var_dump($variable). ' is ' . $type ?></p>
 </body>
 </html>

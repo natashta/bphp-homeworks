@@ -15,6 +15,13 @@
                     <li><a href="1.1-intro-and-branching/1.1.2">Задание 1.1.2</a></li>
                 </ul>
             </li>
+            <li>Занятие 1.2. Формы и строки
+                <ul>
+                    <li><a href="1.2-strings-and-forms/1.2.1-registration/form.html">Задание 1.2.1 Регистрация</a></li>
+                    <li><a href="1.2-strings-and-forms/1.2.2-name-standart/form.html">Задание 1.2.2 Стандартизатор имени</a></li>
+                    <li><a href="1.2-strings-and-forms/1.2.3-additional">Задание 1.2.3 Дополнительное</a></li>
+                </ul>
+            </li>
         </ul>
     </li>
 </ul>

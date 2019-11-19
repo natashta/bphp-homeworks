@@ -16,7 +16,7 @@
         $image = 'img/night.jpg';
     }
 
-    switch(date("N")){
+    switch($day){
         case 1:
             $day = 'понедельник';
             break;
