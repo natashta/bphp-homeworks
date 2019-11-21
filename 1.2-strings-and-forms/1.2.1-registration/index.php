@@ -12,7 +12,7 @@ if (strlen($_POST['password']) < 8) {
     $message .= "Длина пароля должна быть минимум 8 символов<br />";
     $isCorrect = true;
 } 
-if (!preg_match('/[a-zA-Z0-9@.]/', $_POST['email'])) {
+if (!preg_match('/[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.+[a-zA-Z.]{2,}+/', $_POST['email'])) {
     $message .= "Ошибка! Введите корректный email<br />";
     $isCorrect = true;
 } 
