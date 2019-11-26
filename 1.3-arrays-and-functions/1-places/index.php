@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
+
 $chairs = 50;
 $map = generate(5, 8, $chairs);
 $requiredRow = 4;

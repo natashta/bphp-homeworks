@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 $codeWord = "nd82jaake";
 $isCorrect = false;
 $message = "";

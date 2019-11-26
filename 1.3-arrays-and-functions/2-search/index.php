@@ -1,8 +1,10 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
+
 $chairs = 50;
-$map = generate(5, 8, $chairs);
-$requiredRow = 4;
-$requiredPlace = 1;
+$map = generate(5, 8, $chairs); 
+reserve($map, 1, 2); 
+//reserveNearPlaces($map, 2);
 
 function generate($rows, $placesPerRow, $avaliableCount){
     if (($rows*$placesPerRow) > $avaliableCount) {
@@ -24,28 +26,36 @@ function reserve(&$map, $row, $place){
 };
 
 function reserveNearPlaces($map, $numOfPlaces) {
-    $vacantPlaces = 0;
-    for ($i = 1; $i <= count($map); $i++) {           
-        for ($j = 1; $j <= count($map[$i]); $j++) {   
-            if ($map[$i][$j] === 'true') {
-                $vacantPlaces = 0;
-            }; 
+    $countRow = count($map);
+    $countPlace = count($map[$countRow]);
+    for ($i = 1; $i <= $countRow; $i++) { 
+        $counter = $numOfPlaces;      
+        for ($j = 1; $j <= $countPlace; $j++) {  
+           if ($j + $numOfPlaces > $countPlace) {
+           break;
+          }; 
             if ($map[$i][$j] === 'false') {
-                $vacantPlaces++;
-                if ($vacantPlaces === $numOfPlaces) {
-                    $firstPlace = $j - $numOfPlaces + 1;
-                    echo "Ряд $i, места c $firstPlace по $j";
-                };
-            };  
-        };
-    }; 
-};
-reserveNearPlaces($map, 4);
+                $counter--;
+                if ($counter === 0) {
+                    $firstPlace = $numOfPlaces - $j + 1;
+                    return "Ряд $i, места c $firstPlace по $j";
+                }
+            }
+            else $counter = $numOfPlaces;
+        }    
+       
+    } 
+    return "Подходящих мест не найдено";
+}
 
+echo reserveNearPlaces($map, 4);
+
+/*
 $reserve = reserve($map, $requiredRow, $requiredPlace);
 logReserve($requiredRow, $requiredPlace, $reserve);
 $reserve = reserve($map, $requiredRow, $requiredPlace);
 logReserve($requiredRow, $requiredPlace, $reserve);
+*/
 
 function logReserve($row, $place, $result){
     if ($result) {
