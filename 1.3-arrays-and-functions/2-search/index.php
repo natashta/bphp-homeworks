@@ -4,8 +4,6 @@ header('Content-Type: text/html; charset=utf-8');
 $chairs = 50;
 $map = generate(5, 8, $chairs); 
 
-//reserveNearPlaces($map, 2);
-
 function generate($rows, $placesPerRow, $avaliableCount){
     if (($rows*$placesPerRow) > $avaliableCount) {
         return 'false';
@@ -36,9 +34,9 @@ function reserveNearPlaces($map, $numOfPlaces) {
     for ($i = 0; $i < $countRow; $i++) {  //для каждого ряда 
         $counter = 0;      
         for ($j = 0; $j < $countPlace; $j++) {  //для каждого места в ряду
-           if ($j > $countPlace - $numOfPlaces + 1) { //если место по номеру больше, чем количество мест минус мест для резервации плюс один
-           continue;
-            }; 
+          // if ($j > $countPlace - $numOfPlaces + 1) { //если место по номеру больше, чем количество мест минус мест для резервации плюс один
+          // continue;
+          //  }; 
             if ($map[$i][$j] === 'false') { // если место пустое
                 $counter++;
                 $seats[] = $j + 1;
@@ -48,7 +46,6 @@ function reserveNearPlaces($map, $numOfPlaces) {
                 $seats = [];
             }
                 if ($counter === $numOfPlaces) {
-                   // $firstPlace = ($j + 1) - $numOfPlaces;
                     return 'Ряд '.($i + 1).', места '. implode(', ', $seats) . '<br></br>';
                     continue;
                 }
@@ -59,7 +56,7 @@ function reserveNearPlaces($map, $numOfPlaces) {
        
     return "Подходящих мест не найдено";
 }
-reserve($map, 1, 1); 
+reserve($map, 1, 3); 
 reserve($map, 2, 2); 
 echo reserveNearPlaces($map, 5);
 
