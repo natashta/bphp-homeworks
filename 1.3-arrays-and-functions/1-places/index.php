@@ -4,14 +4,14 @@ header('Content-Type: text/html; charset=utf-8');
 $chairs = 50;
 $map = generate(5, 8, $chairs);
 $requiredRow = 4;
-$requiredPlace = 1;
+$requiredPlace = 3;
 
 function generate($rows, $placesPerRow, $avaliableCount){
     if (($rows*$placesPerRow) > $avaliableCount) {
         return false;
     } else {
-        $rowScheme = array_fill(1, $placesPerRow, 'false');
-        $hallScheme = array_fill(1, $rows, $rowScheme);
+        $rowScheme = array_fill(0, $placesPerRow, 'false');
+        $hallScheme = array_fill(0, $rows, $rowScheme);
         return $hallScheme;
     };
 };
